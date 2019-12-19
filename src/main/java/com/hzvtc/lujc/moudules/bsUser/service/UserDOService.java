@@ -1,11 +1,13 @@
 package com.hzvtc.lujc.moudules.bsUser.service;
 
 import com.hzvtc.lujc.moudules.bsUser.pojo.UserDO;
+import com.oracle.deploy.update.UpdateInfo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Description:  用户信息接口
@@ -15,9 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Service
 public interface UserDOService {
-    ResponseEntity<Void> createUser(UserDO userDO);
     void delete(String id);
-    ResponseEntity<String> login(String username, String password, HttpServletRequest request, HttpServletResponse response);
+    ResponseEntity<String> login(UserDO userDO, HttpServletRequest request, HttpServletResponse response);
     ResponseEntity<UserDO> getUserByToken(String token);
     ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response, String token);
+    ResponseEntity<List<String>> getUserList();
+    String updateInfo(String token,String avatar);
 }

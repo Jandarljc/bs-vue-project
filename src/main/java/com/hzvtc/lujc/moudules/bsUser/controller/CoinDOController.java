@@ -70,7 +70,7 @@ public class CoinDOController {
         }
     }
 
-    @RequestMapping(value = "/sendGetCoinPageData.json", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/sendGetCoinPageData.json", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public ResponseEntity<Object> pageResult(SearchDTO<CoinDO> query) {
         if (LOGGER.isInfoEnabled()) {
